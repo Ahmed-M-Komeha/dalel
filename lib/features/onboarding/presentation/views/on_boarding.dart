@@ -1,4 +1,3 @@
-
 import 'package:dalel_app/core/widgets/custom_button.dart';
 import 'package:dalel_app/features/onboarding/presentation/views/widgets/custom_nav_bar.dart';
 import 'package:dalel_app/features/onboarding/presentation/views/widgets/on_boarding.dart';
@@ -16,13 +15,17 @@ class OnBoarding extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               const SizedBox(
                 height: 40,
               ),
               const CustomNavBar(),
               OnBoardingBody(),
+              const SizedBox(
+                height: 60,
+              ),
               const CustomButton(text: 'Next'),
               const SizedBox(
                 height: 17,
