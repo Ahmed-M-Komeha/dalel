@@ -1,5 +1,6 @@
 import 'package:dalel_app/core/utils/app_assets.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
+import 'package:dalel_app/features/onboarding/data/models/on_boarding_model.dart';
 
 import 'package:dalel_app/features/onboarding/presentation/views/widgets/custom_page_indictor.dart';
 import 'package:flutter/material.dart';
@@ -14,17 +15,17 @@ class OnBoardingBody extends StatelessWidget {
         height: 600,
         child: PageView.builder(
           controller: _controller,
-          itemCount: 3,
+          itemCount: onBoarding.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
                 Container(
                   width: 343,
                   height: 290,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage(Assets.resourceImagesOnboarding1))),
+                          image: AssetImage(onBoarding[index].image))),
                 ),
                 const SizedBox(
                   height: 24,
@@ -34,7 +35,7 @@ class OnBoardingBody extends StatelessWidget {
                   height: 32,
                 ),
                 Text(
-                  "Explore The history with\nDalel in a smart way",
+                  onBoarding[index].title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
@@ -44,8 +45,8 @@ class OnBoardingBody extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const Text(
-                  "Using our app’s history libraries/nyou can find many historical periods ",
+                Text(
+                  onBoarding[index].subTitle,
                   textAlign: TextAlign.center,
                   style: CustomTextStyles.poppins300style16,
                 ),
